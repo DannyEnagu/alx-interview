@@ -11,7 +11,14 @@ def canUnlockAll(boxes):
        Agrs:
          boxes(list): list of lists
     """
+    if not isinstance(boxes, list):
+        return False
+
     num_boxes = len(boxes)
+
+    if num_boxes == 0:
+        return True
+
     # Keep track of visited boxes.
     visited = [False] * num_boxes
 
@@ -21,8 +28,11 @@ def canUnlockAll(boxes):
         visited[box] = True
         # Iterate through each key in the current box.
         for key in boxes[box]:
-            # Call the `dfs` function unvisited boxes.
-            if not visited[key]:
+            # Call the `dfs` function for unvisited boxes
+            # only if the key is within the valid range
+            if (isinstance(key, int)
+                and 0 <= key < num_boxes
+                    and not visited[key]):
                 dfs(key)
 
     dfs(0)  # Start the search
