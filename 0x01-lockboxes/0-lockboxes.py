@@ -30,9 +30,8 @@ def canUnlockAll(boxes):
         for key in boxes[box]:
             # Call the `dfs` function for unvisited boxes
             # only if the key is within the valid range
-            if (isinstance(key, int)
-                and 0 <= key < num_boxes
-                    and not visited[key]):
+            if (isinstance(key, int) and
+                    0 <= key < num_boxes and not visited[key]):
                 dfs(key)
 
     dfs(0)  # Start the search
