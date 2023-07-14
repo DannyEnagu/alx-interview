@@ -55,10 +55,13 @@ Noticed that Minimum Operations is just the sum of the prime factors of the numb
 `…`
 `…`
 
-To calculate the fewest number of operations needed to result in exactly n 'H' characters in the file, you can use a dynamic programming approach.
+To calculate the fewest number of operations needed to result in exactly `n(H)` characters in the file:
 
-we use an array `dp (i.e dynamic programming)` to store the minimum number of operations needed for each index up to n. The base case `dp[1] = 0` indicates that no operations are needed when `n = 1`.
-
-The outer loop iterates from 2 to `n`, considering each number and finding the minimum operations required to reach that number of `'H'` characters. The inner loop iterates from `1` to `i - 1`and checks if `i` is divisible by `j`. If it is, we consider the option of `copying` `j` characters and `pasting` them `(i // j) - 1` times to reach `i` characters. We update the minimum operations using `min(dp[i], dp[j] + i // j)`.
-
-Finally, the method returns `dp[n]`, which represents the fewest number of operations needed to result in exactly `n` `'H'` characters in the file.
+1. Define and initalize two a variables,
+   - `operations = 0` # store the numbers of operations 
+   - `prime = 2`      # store the prime factores of n
+2. In a while loop, iterate untile `n <= 1`.
+3. On each iteration check `n` divide by `prime` is equal to zero `(n % prime == 0)`.
+4. If `prime` is a factor of `n` increase the number of operations by `prime` `(operations += prime).`
+5. Else, increase prime by 1 `(prime += 1)` and repeat step 2 to 5.
+6. Return `operations`.
