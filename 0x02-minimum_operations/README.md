@@ -49,19 +49,21 @@ Minimum Operations:
 
 Noticed that Minimum Operations is just the sum of the prime factors of the number `n`
 
-`2 x 2 = 4` `(ans: 2 + 2 = 4)`
-`3 x 3 = 9` `( ans: 3 + 3 = 6)`
-`2 x 2 x 3 = 12` `(ans: 2+2+3=7)`
-`…`
-`…`
+- `2 x 2 = 4` `(ans: 2 + 2 = 4)`
+- `3 x 3 = 9` `( ans: 3 + 3 = 6)`
+- `2 x 2 x 3 = 12` `(ans: 2+2+3=7)`
+- `…`
+- `…`
 
-To calculate the fewest number of operations needed to result in exactly `n(H)` characters in the file:
+To calculate the fewest number of operations needed to result in exactly `n('H')` characters in the file:
 
-1. Define and initalize two a variables,
-   - `operations = 0` # store the numbers of operations 
-   - `prime = 2`      # store the prime factores of n
+1. Define and initalize two variables:
+   - `operations = 0` # stores the numbers of operations 
+   - `prime = 2`      # stores the prime factores of `n`
 2. In a while loop, iterate untile `n <= 1`.
-3. On each iteration check `n` divide by `prime` is equal to zero `(n % prime == 0)`.
-4. If `prime` is a factor of `n` increase the number of operations by `prime` `(operations += prime).`
+3. On each iteration, check if `prime` is a prime factor of `n` (i.e, `n % prime == 0`).
+4. If `prime` is a factor of `n`:
+   - Add `prime` to the number of operations `(operations += prime)` and,
+   - Save the output of the floor division of `n` by `prime` `(n //= prime)` in `n`.
 5. Else, increase prime by 1 `(prime += 1)` and repeat step 2 to 5.
 6. Return `operations`.
