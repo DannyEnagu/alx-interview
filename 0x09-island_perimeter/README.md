@@ -57,11 +57,11 @@ water (i.e 0 cells).
 
 I used two nested for loops. The outer loop, go over the grid rows, the inner the grid columns.
 
-Finding the perimeter of an `island is simply calcutating the total of all the sides of a square land
+Finding the perimeter of an Island is simply calcutating the total of all the sides of a square land
 `(1 cell)` that are next to water `(0 cells)`. The perimeter represents the total length of the boundary
 that surrounds the land cells (the island).
 
-Where, each side of the given square `(1 cell)`has a length of `1`. A single land cell `(1 cell)`
+Where, each side of the given square `(1 cell)` has a length of `1`. A single land cell `(1 cell)`
 surrounded by water cells `(0 cells)`, has a total length of 4. Therefore, if it's closest neighbour
 `(top or botom or right or even left cell)` is a land cell, we then need to subtract those side(s) from 4,
 and add up the remaining remaining lengths from all the land cells that makes up the Island to get the
