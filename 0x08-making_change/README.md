@@ -43,4 +43,14 @@ carrie@ubuntu:~/0x08-making_change$ ./0-main.py
 -1
 carrie@ubuntu:~/0x08-making_change$
 ```
+## Solution Algorithem
+
+1. Sort the pile/list of coins in decending order.
+2. Set `number_of_coin = 0`.
+2. Loop through the list once. one item/coin at a time.
+3. Count the number of times current coin amount can be gotten from total amount `(i.e count = total // coint)` and `(remender = total % coin)`.
+4. check if after step 3, remainder is greater than zero(0):
+  - total = remainder`, `number_of_coin += count`. continue to next item/coin.
+  - Else, `number_of_coin  += count` return early `number_of_coin`.
+5. if current item/coin is the last on the list of coins return `-1` (i.e could not make change).
 
