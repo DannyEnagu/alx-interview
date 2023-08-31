@@ -52,23 +52,25 @@ guillaume@ubuntu:~/0x09$
 
 ## Solution
 
-  The Goal is to find the perimiter of a rectangular `grid` (i.e Island) that is surrounded by water.
-Note, the perimiter of a rectangle can be calculated as such:
-  p = 2(l + w).
-  where
-    - 2 the two dimensions of a rectangle length and width. 
-    - l is the length (Horizontal sides) and
-    - w is the width (Vertical sides).
+  The Goal is to find the total perimeter of the Island`(i.e connected 1 cells) that is surrounded by
+water(i.e 0 cells).
 
-But in our case, the height of the island refers the vertical side and the width is the horizontal sides.
-Therefore: p = 2(h + w).
-
-We will attempt to solve the island problem using two loops an outer loop and an inner loop. The outer
-loop will loop throught the grid rows and the inner loop, loops through a row columns once.
-
-We start both our outer and inner loop at item 2, and stop just before the last item in the grid because
-we were told that the grid is completely surrounded by water. So it will be a wast of time to start at the
-first items.
+I used two nested for loops. The outer loop, go over the grid rows, the inner the grid columns.
+Find the perimiter of an `island `(1 cell)` by adding all it's sides that are next to water `(0 cells)`.
+Where, each side of the square `(1 cell)`has a length of `1` `(i.e a single 1 cell/land surrounded by
+zeros/water has a total length of 4)`. But, if it's closest neighbour `(i.e top or botom or right or even
+left side)` is a land cell. We will need to subtract those sides from 4 and then add up all remaining from
+all land cells that make up the Island, to get the final perimeter of the Island area. The perimeter
+represents the total length of the boundary that surrounds the land cells (the island).
 
 ### Algorithm
+
+1. Set `perimeter = 0`
+2. Start loop
+3. `IF` current cell value is `1` `THEN` `perimeter += 4` MOVE to step 4 `ELSE` `JUMP TO STEP` 5
+4. Check adjacent cells (up, down, left, and right)
+   - `IF` top cell value `1` `THEN` `perimeter -= 2`
+   - `IF` left cell value `1` `THEN` `perimeter -= 2
+   - `ELSE` `JUMP TO STEP` 5`
+5. `Else` continue to next cell
 
